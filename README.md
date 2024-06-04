@@ -1,66 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Blog Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenue dans mon projet de blog développé avec Laravel, utilisant Breeze pour l'authentification, Tailwind CSS pour le design et MySQL pour la base de données. Ce projet a été réalisé dans le cadre de mon entretien chez Digital Fennec.
 
-## About Laravel
+## Prérequis
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Docker
+- Docker Compose
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+1. Clonez le dépôt :
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    ```bash
+    git clone https://github.com/votre-utilisateur/laravel-blog.git
+    cd laravel-blog
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Copiez le fichier d'environnement :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    cp .env.example .env
+    ```
 
-## Laravel Sponsors
+3. Modifiez le fichier `.env` pour configurer votre base de données MySQL :
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=mysql
+    DB_PORT=3306
+    DB_DATABASE=laravel_blog
+    DB_USERNAME=sail
+    DB_PASSWORD=password
+    ```
 
-### Premium Partners
+4. Installez les dépendances PHP avec Composer via Sail :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    ```bash
+    ./vendor/bin/sail up -d
+    ./vendor/bin/sail composer install
+    ```
 
-## Contributing
+5. Installez les dépendances JavaScript avec npm via Sail :
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```bash
+    ./vendor/bin/sail npm install
+    ```
 
-## Code of Conduct
+6. Générez la clé de l'application :
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    ./vendor/bin/sail artisan key:generate
+    ```
 
-## Security Vulnerabilities
+7. Exécutez les migrations :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```bash
+    ./vendor/bin/sail artisan migrate
+    ```
 
-## License
+8. Compilez les assets :
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    ./vendor/bin/sail npm run build
+    ```
+
+## Utilisation
+
+Pour accéder à l'application, ouvrez votre navigateur et rendez-vous à l'adresse suivante :
+
+localhost/
+
+
+## Fonctionnalités
+
+- **Authentification** : Implémentée avec Laravel Breeze.
+- **UI/UX** : Stylisée avec Tailwind CSS.
+- **Base de données** : Gérée avec MySQL, orchestrée par Laravel Sail.
+- **Architecture** : Basée sur le framework Laravel.
+
+## Contribution
+
+Si vous souhaitez contribuer à ce projet, veuillez suivre ces étapes :
+
+1. Fork le projet
+2. Créez une nouvelle branche (`git checkout -b feature/AmazingFeature`)
+3. Effectuez vos modifications (`git commit -m 'Add some AmazingFeature'`)
+4. Poussez votre branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+-
+
+Merci de l'intérêt porté à mon projet ! N'hésitez pas à me contacter pour toute question ou suggestion.
